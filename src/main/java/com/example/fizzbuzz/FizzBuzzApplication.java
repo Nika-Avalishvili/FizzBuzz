@@ -22,6 +22,7 @@ public class FizzBuzzApplication {
     }
 
 //  Directly calculates and returns result
+//  New line of comments for git testing
     @GetMapping("/hi")
     public String hi(@RequestParam(value = "param1") String name,@RequestParam(value = "param2") int number){
         String result = "";
