@@ -10,17 +10,18 @@ import java.util.concurrent.atomic.AtomicLong;
 @RestController
 public class FizzBuzzApplication {
 
-
     public static void main(String[] args) {
         SpringApplication.run(FizzBuzzApplication.class, args);
 
     }
 
+//  Calculates using intermediate Greeting class
     @GetMapping("/")
     public Greeting index(){
         return new Greeting("nika", 130);
     }
 
+//  Directly calculates and returns result
     @GetMapping("/hi")
     public String hi(@RequestParam(value = "param1") String name,@RequestParam(value = "param2") int number){
         String result = "";
