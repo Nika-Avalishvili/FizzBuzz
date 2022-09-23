@@ -1,11 +1,11 @@
 package com.example.fizzbuzz;
 
-public class Greeting {
+public class FizzBuzz {
     private String name;
     private int number;
     private String result;
 
-    public Greeting(String name, int number) {
+    public FizzBuzz(String name, int number) {
         this.name = name;
         this.number = number;
         this.result = "";
