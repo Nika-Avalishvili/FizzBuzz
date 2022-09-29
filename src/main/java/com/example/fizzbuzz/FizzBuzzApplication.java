@@ -96,5 +96,22 @@ public class FizzBuzzApplication {
     }
 
 
+    //    Test method used to test creation of new tables in PostgreSQL database;
+    @GetMapping("/createTable")
+    public void createTable(@RequestParam(value = "tableName") String tbl_name, @RequestParam(value = "param1") String name1, @RequestParam(value = "param2") String name2) {
+        Connection connection = null;
+        Statement statement = null;
+        ConnectFizzBuzzDB objConnectFizzBuzzDB= new ConnectFizzBuzzDB();
+        connection = objConnectFizzBuzzDB.get_connection();
+
+        try {
+            String query = "CREATE TABLE IF NOT EXISTS "+tbl_name+" (id SERIAL PRIMARY KEY, "+name1+" VARCHAR(255), "+name2+" VARCHAR(255))";
+            statement = connection.createStatement();
+            statement.executeUpdate(query);
+            System.out.println("Table Created Successfully!");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 
 }
