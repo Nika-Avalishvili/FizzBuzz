@@ -20,4 +20,6 @@ public class FizzBuzzController {
     public ResponseEntity getAllProducts() {
         return ResponseEntity.ok(this.fizzBuzzRepository.findAll());
     }
+
+
 }
