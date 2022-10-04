@@ -6,11 +6,6 @@ import java.sql.DriverManager;
 public class ConnectFizzBuzzDB {
     public Connection get_connection() {
         Connection connection = null;
-        String host = "localhost";
-        String port = "5432";
-        String db_name = "fizz_buzzdb";
-        String username = "postgres";
-        String password = "#REF!123";
 
         try {
             Class.forName("org.postgresql.Driver");
