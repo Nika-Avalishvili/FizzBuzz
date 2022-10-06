@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class FizzBuzzDB {
+public class FizzBuzz {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,10 +15,10 @@ public class FizzBuzzDB {
     private Integer myNumber;
     private String result;
 
-    public FizzBuzzDB() {
+    public FizzBuzz() {
     }
 
-    public FizzBuzzDB(long id, String name, Integer myNumber, String result) {
+    public FizzBuzz(long id, String name, Integer myNumber, String result) {
         this.id = id;
         this.name = name;
         this.myNumber = myNumber;
