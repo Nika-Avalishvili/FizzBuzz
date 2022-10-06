@@ -13,31 +13,29 @@ public class FizzBuzzDBController {
     private FizzBuzzRepository fizzBuzzRepository;
 
     @PostMapping("/insertValue")
-    public @ResponseBody String addNewFizzBuzz (@RequestParam(value = "id") Long id, @RequestParam (value = "myNumber") Integer myNumber, @RequestParam (value = "name") String name) {
+    public @ResponseBody FizzBuzzDB addNewFizzBuzz (@RequestParam (value = "myNumber") Integer myNumber, @RequestParam (value = "name") String name) {
         FizzBuzzDB entry = new FizzBuzzDB();
-        entry.setId(id);
         entry.setName(name);
         entry.setMyNumber(myNumber);
         entry.setResult(FizzBuzzResultService.setResult(myNumber));
         fizzBuzzRepository.save(entry);
-        return "Saved";
+        return entry;
     }
 
     @PutMapping("/updateValue")
-    public String updateValues(@RequestParam (value = "id") Long id, @RequestParam (value = "myNumber") Integer myNumber, @RequestParam (value = "name") String name) {
+    public FizzBuzzDB updateValues(@RequestParam (value = "id") Long id, @RequestParam (value = "myNumber") Integer myNumber, @RequestParam (value = "name") String name) {
         FizzBuzzDB entry = new FizzBuzzDB();
         entry.setId(id);
         entry.setName(name);
         entry.setMyNumber(myNumber);
         entry.setResult(FizzBuzzResultService.setResult(myNumber));
         fizzBuzzRepository.save(entry);
-        return "Updated";
+        return entry;
     }
 
     @DeleteMapping("/deleteValue")
-    public String deleteValues(@RequestParam (value = "id") Long id) {
+    public void deleteValues(@RequestParam (value = "id") Long id) {
         fizzBuzzRepository.deleteById(id);
-        return "Deleted";
     }
 
     @GetMapping(path="/all")
