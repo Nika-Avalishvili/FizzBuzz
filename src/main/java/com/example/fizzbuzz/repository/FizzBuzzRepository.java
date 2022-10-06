@@ -1,8 +1,7 @@
 package com.example.fizzbuzz.repository;
 
 import com.example.fizzbuzz.model.FizzBuzzDB;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface FizzBuzzRepository extends CrudRepository<FizzBuzzDB, Long> {
-
+public interface FizzBuzzRepository extends JpaRepository<FizzBuzzDB, Long> {
 }
