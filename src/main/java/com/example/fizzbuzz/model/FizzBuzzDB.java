@@ -5,18 +5,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-//with the annotation of @Entity we declare that the class is related to DB
 @Entity
 public class FizzBuzzDB {
 
-//    all tables have to have specific id that we can indicate using @Id annotation
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
     private Integer myNumber;
     private String result;
-
 
     public FizzBuzzDB() {
     }
@@ -27,7 +24,6 @@ public class FizzBuzzDB {
         this.myNumber = myNumber;
         this.result = result;
     }
-
 
     public long getId() {
         return id;
@@ -59,7 +55,5 @@ public class FizzBuzzDB {
 
     public void setResult(String result) {
         this.result = result;
-
     }
-
 }
