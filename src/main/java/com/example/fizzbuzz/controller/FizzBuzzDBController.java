@@ -18,8 +18,8 @@ public class FizzBuzzDBController {
         entry.setName(name);
         entry.setMyNumber(myNumber);
         entry.setResult(FizzBuzzResultService.setResult(myNumber));
-        fizzBuzzRepository.save(entry);
-        return entry;
+        FizzBuzzDB savedEntry = fizzBuzzRepository.save(entry);
+        return savedEntry;
     }
 
     @PutMapping("/updateValue")
@@ -29,8 +29,8 @@ public class FizzBuzzDBController {
         entry.setName(name);
         entry.setMyNumber(myNumber);
         entry.setResult(FizzBuzzResultService.setResult(myNumber));
-        fizzBuzzRepository.save(entry);
-        return entry;
+        FizzBuzzDB savedEntry = fizzBuzzRepository.save(entry);
+        return savedEntry;
     }
 
     @DeleteMapping("/deleteValue")
