@@ -1,6 +1,7 @@
-package com.example.fizzbuzz.DTO;
+package com.example.fizzbuzz.fizzbuzzServices;
 
 import com.example.fizzbuzz.model.FizzBuzz;
+import com.example.fizzbuzz.model.FizzBuzzDTO;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

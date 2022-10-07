@@ -1,9 +1,9 @@
 package com.example.fizzbuzz.controller;
 
-import com.example.fizzbuzz.DTO.FizzBuzzConverter;
+import com.example.fizzbuzz.fizzbuzzServices.FizzBuzzConverter;
 import com.example.fizzbuzz.fizzbuzzServices.FizzBuzzResultService;
 import com.example.fizzbuzz.model.FizzBuzz;
-import com.example.fizzbuzz.DTO.FizzBuzzDTO;
+import com.example.fizzbuzz.model.FizzBuzzDTO;
 import com.example.fizzbuzz.repository.FizzBuzzRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
