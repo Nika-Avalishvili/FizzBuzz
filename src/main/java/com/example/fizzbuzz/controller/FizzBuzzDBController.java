@@ -20,22 +20,17 @@ public class FizzBuzzDBController {
     private FizzBuzzConverter fizzBuzzConverter;
 
     @PostMapping("/insertValue")
-    public @ResponseBody FizzBuzz addNewFizzBuzz (@RequestParam (value = "myNumber") Integer myNumber, @RequestParam (value = "name") String name) {
-        FizzBuzz entry = new FizzBuzz();
-        entry.setName(name);
-        entry.setMyNumber(myNumber);
-        entry.setResult(FizzBuzzResultService.setResult(myNumber));
+    public @ResponseBody FizzBuzz addNewFizzBuzz (@RequestBody FizzBuzzDTO fizzBuzzDTO) {
+        FizzBuzz entry = fizzBuzzConverter.dtoToEntity(fizzBuzzDTO);
+        entry.setResult(FizzBuzzResultService.setResult(entry.getMyNumber()));
         FizzBuzz savedEntry = fizzBuzzRepository.save(entry);
         return savedEntry;
     }
 
     @PutMapping("/updateValue")
-    public FizzBuzz updateValues(@RequestParam (value = "id") Long id, @RequestParam (value = "myNumber") Integer myNumber, @RequestParam (value = "name") String name) {
-        FizzBuzz entry = new FizzBuzz();
-        entry.setId(id);
-        entry.setName(name);
-        entry.setMyNumber(myNumber);
-        entry.setResult(FizzBuzzResultService.setResult(myNumber));
+    public FizzBuzz updateValues(@RequestBody FizzBuzzDTO fizzBuzzDTO) {
+        FizzBuzz entry = fizzBuzzConverter.dtoToEntity(fizzBuzzDTO);
+        entry.setResult(FizzBuzzResultService.setResult(entry.getMyNumber()));
         FizzBuzz savedEntry = fizzBuzzRepository.save(entry);
         return savedEntry;
     }
