@@ -51,6 +51,12 @@
             <version>42.2.15</version>
         </dependency>
 
+<!--        Lombok library-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

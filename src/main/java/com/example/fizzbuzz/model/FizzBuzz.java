@@ -1,11 +1,19 @@
 package com.example.fizzbuzz.model;
 
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+@AllArgsConstructor  //Lombok for all field constructor
+@NoArgsConstructor   //Lombok for no field constructor
+@Data  //Lombok for getters and setters
 public class FizzBuzz {
 
     @Id
@@ -15,45 +23,4 @@ public class FizzBuzz {
     private Integer myNumber;
     private String result;
 
-    public FizzBuzz() {
-    }
-
-    public FizzBuzz(long id, String name, Integer myNumber, String result) {
-        this.id = id;
-        this.name = name;
-        this.myNumber = myNumber;
-        this.result = result;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getMyNumber() {
-        return myNumber;
-    }
-
-    public void setMyNumber(Integer myNumber) {
-        this.myNumber = myNumber;
-    }
-
-    public String getResult() {
-        return result;
-    }
-
-    public void setResult(String result) {
-        this.result = result;
-    }
 }

@@ -25,7 +25,7 @@ public class FizzBuzzDBController {
         entry.setName(name);
         entry.setMyNumber(myNumber);
         entry.setResult(FizzBuzzResultService.setResult(myNumber));
-        FizzBuzzDB savedEntry = fizzBuzzRepository.save(entry);
+        FizzBuzz savedEntry = fizzBuzzRepository.save(entry);
         return savedEntry;
     }
 
@@ -36,7 +36,7 @@ public class FizzBuzzDBController {
         entry.setName(name);
         entry.setMyNumber(myNumber);
         entry.setResult(FizzBuzzResultService.setResult(myNumber));
-        FizzBuzzDB savedEntry = fizzBuzzRepository.save(entry);
+        FizzBuzz savedEntry = fizzBuzzRepository.save(entry);
         return savedEntry;
     }
 
