@@ -1,40 +1,16 @@
 package com.example.fizzbuzz.DTO;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor  //Lombok for all field constructor
+@NoArgsConstructor   //Lombok for no field constructor
+@Data  //Lombok for getters and setters
 public class FizzBuzzDTO {
     private long id;
     private String name;
     private Integer myNumber;
     private String result;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getMyNumber() {
-        return myNumber;
-    }
-
-    public void setMyNumber(Integer myNumber) {
-        this.myNumber = myNumber;
-    }
-
-    public String getResult() {
-        return result;
-    }
-
-    public void setResult(String result) {
-        this.result = result;
-    }
 }
