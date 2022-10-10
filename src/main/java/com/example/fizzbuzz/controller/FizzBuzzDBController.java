@@ -1,13 +1,12 @@
 package com.example.fizzbuzz.controller;
 
-import com.example.fizzbuzz.fizzbuzzServices.FizzBuzzConverter;
-import com.example.fizzbuzz.fizzbuzzServices.FizzBuzzResultService;
+import com.example.fizzbuzz.fizzbuzzServices.FizzBuzzService;
+import com.example.fizzbuzz.model.FizzBuzzMapper;
 import com.example.fizzbuzz.model.FizzBuzz;
 import com.example.fizzbuzz.model.FizzBuzzDTO;
 import com.example.fizzbuzz.repository.FizzBuzzRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -17,22 +16,19 @@ public class FizzBuzzDBController {
     private FizzBuzzRepository fizzBuzzRepository;
 
     @Autowired
-    private FizzBuzzConverter fizzBuzzConverter;
+    private FizzBuzzMapper fizzBuzzMapper;
+
+    @Autowired
+    private FizzBuzzService fizzBuzzService;
 
     @PostMapping("/insertValue")
     public @ResponseBody FizzBuzz addNewFizzBuzz (@RequestBody FizzBuzzDTO fizzBuzzDTO) {
-        FizzBuzz entry = fizzBuzzConverter.dtoToEntity(fizzBuzzDTO);
-        entry.setResult(FizzBuzzResultService.setResult(entry.getMyNumber()));
-        FizzBuzz savedEntry = fizzBuzzRepository.save(entry);
-        return savedEntry;
+        return fizzBuzzService.createEntry(fizzBuzzDTO);
     }
 
     @PutMapping("/updateValue")
     public FizzBuzz updateValues(@RequestBody FizzBuzzDTO fizzBuzzDTO) {
-        FizzBuzz entry = fizzBuzzConverter.dtoToEntity(fizzBuzzDTO);
-        entry.setResult(FizzBuzzResultService.setResult(entry.getMyNumber()));
-        FizzBuzz savedEntry = fizzBuzzRepository.save(entry);
-        return savedEntry;
+        return fizzBuzzService.updateEntry(fizzBuzzDTO);
     }
 
     @DeleteMapping("/deleteValue")
@@ -42,14 +38,11 @@ public class FizzBuzzDBController {
 
     @GetMapping("/findAll")
     public List<FizzBuzzDTO> getAllFizzBuzz() {
-        List<FizzBuzz> findAll = fizzBuzzRepository.findAll();
-        return fizzBuzzConverter.entityToDto(findAll);
+        return fizzBuzzService.findAllEntries();
     }
 
     @GetMapping("/find/{Id}")
     public FizzBuzzDTO findById(@PathVariable (value="Id") Long id) {
-        FizzBuzz fbz = fizzBuzzRepository.findById(id).orElse(null);
-        return fizzBuzzConverter.entityToDto(fbz);
+        return fizzBuzzService.findEntriesById(id);
     }
-
 }
