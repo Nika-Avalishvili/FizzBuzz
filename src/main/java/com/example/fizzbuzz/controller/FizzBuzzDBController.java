@@ -22,12 +22,12 @@ public class FizzBuzzDBController {
     private FizzBuzzService fizzBuzzService;
 
     @PostMapping("/insertValue")
-    public @ResponseBody FizzBuzz addNewFizzBuzz (@RequestBody FizzBuzzDTO fizzBuzzDTO) {
+    public @ResponseBody FizzBuzzDTO addNewFizzBuzz (@RequestBody FizzBuzzDTO fizzBuzzDTO) {
         return fizzBuzzService.createEntry(fizzBuzzDTO);
     }
 
     @PutMapping("/updateValue")
-    public FizzBuzz updateValues(@RequestBody FizzBuzzDTO fizzBuzzDTO) {
+    public FizzBuzzDTO updateValues(@RequestBody FizzBuzzDTO fizzBuzzDTO) {
         return fizzBuzzService.updateEntry(fizzBuzzDTO);
     }
 

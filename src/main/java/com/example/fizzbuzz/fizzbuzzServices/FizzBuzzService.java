@@ -15,16 +15,18 @@ public class FizzBuzzService {
     private final FizzBuzzRepository fizzBuzzRepository;
     private final FizzBuzzMapper fizzBuzzMapper;
 
-    public FizzBuzz createEntry(FizzBuzzDTO fizzBuzzDTO){
+    public FizzBuzzDTO createEntry(FizzBuzzDTO fizzBuzzDTO){
         FizzBuzz entry = fizzBuzzMapper.dtoToEntity(fizzBuzzDTO);
         entry.setResult(FizzBuzzResultService.setResult(entry.getMyNumber()));
-        return fizzBuzzRepository.save(entry);
+        fizzBuzzRepository.save(entry);
+        return fizzBuzzMapper.entityToDto(entry);
     }
 
-    public FizzBuzz updateEntry(FizzBuzzDTO fizzBuzzDTO){
+    public FizzBuzzDTO updateEntry(FizzBuzzDTO fizzBuzzDTO){
         FizzBuzz entry = fizzBuzzMapper.dtoToEntity(fizzBuzzDTO);
         entry.setResult(FizzBuzzResultService.setResult(entry.getMyNumber()));
-        return fizzBuzzRepository.save(entry);
+        fizzBuzzRepository.save(entry);
+        return fizzBuzzMapper.entityToDto(entry);
     }
 
     public List<FizzBuzzDTO> findAllEntries(){
