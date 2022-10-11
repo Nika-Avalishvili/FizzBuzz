@@ -1,4 +1,4 @@
-package com.example.fizzbuzz.DTO;
+package com.example.fizzbuzz.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

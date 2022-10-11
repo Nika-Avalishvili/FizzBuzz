@@ -1,13 +1,11 @@
-package com.example.fizzbuzz.DTO;
+package com.example.fizzbuzz.model;
 
-import com.example.fizzbuzz.model.FizzBuzz;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class FizzBuzzConverter {
+public class FizzBuzzMapper {
 
     public FizzBuzzDTO entityToDto(FizzBuzz fizzBuzz){
         FizzBuzzDTO dto = new FizzBuzzDTO();
