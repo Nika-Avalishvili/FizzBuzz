@@ -9,5 +9,4 @@ public class FizzBuzzApplication {
         SpringApplication.run(FizzBuzzApplication.class, args);
     }
 
-
 }
